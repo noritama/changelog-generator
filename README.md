@@ -14,7 +14,8 @@ var generate = require('changelog-generator');
 
 var url;
 try {
-  url = require('./package.json').repository.url;
+  // https://github.com/noritama/changelog-generator
+  url = require('./package.json').homepage;
 } catch(e) {
   console.error('package.json repository.url load failure.');
   process.exit(1);
