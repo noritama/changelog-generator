@@ -1,6 +1,6 @@
 {
   "name": "changelog-generator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Generate All Changelog for github project.",
   "main": "index.js",
   "scripts": {},
