@@ -25,7 +25,7 @@ or add npm script
 ```package.json
 {
   "scripts": {
-    "changelog": "node -e \"require('changelog-generator)()'\""
+    "changelog": "node -e \"require('changelog-generator')()\""
   }
 }
 ```
