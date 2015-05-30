@@ -14,10 +14,24 @@ function getUrl() {
   return require(path.join(__dirname, '..', 'package.json')).homepage;
 }
 
+function defaultCallback(err) {
+  if (err) {
+    console.error(err);
+  }
+}
+
 module.exports = function(url, callback) {
-  if (arguments.length === 1) {
-    callback = url;
+  if (arguments.length === 0) {
+    callback = defaultCallback;
     url = null;
+  }
+  if (arguments.length === 1) {
+    if (typeof url === 'function') {
+      callback = url;
+      url = null;
+    } else {
+      callback = defaultCallback;
+    }
   }
   if (!url)
     url = getUrl();
