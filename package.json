@@ -26,7 +26,6 @@
   "readmeFilename": "README.md",
   "devDependencies": {},
   "dependencies": {
-    "commander": "^2.8.1",
     "conventional-changelog": "git://github.com/noritama/conventional-changelog.git",
     "lodash": "^3.9.2",
     "neo-async": "^1.2.0",

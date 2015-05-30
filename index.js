@@ -1,6 +1,7 @@
 'use strict';
 var cp = require('child_process');
 var fs = require('fs');
+var path = require('path');
 
 var _ = require('lodash');
 var async = require('neo-async');
@@ -9,7 +10,18 @@ var semver = require('semver');
 
 var COMMIT_PATTERN = /^(\w*)(\(([\w\$\.\-\* ]*)\))?\: (.*)$/;
 
+function getUrl() {
+  return require(path.join(__dirname, '..', 'package.json')).homepage;
+}
+
 module.exports = function(url, callback) {
+  if (arguments.length === 1) {
+    callback = url;
+    url = null;
+  }
+  if (!url)
+    url = getUrl();
+
   var dates = {};
   async.waterfall([
     function(next) {
